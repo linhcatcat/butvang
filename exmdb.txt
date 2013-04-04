@@ -1,0 +1,67 @@
+http://www.javacodegeeks.com/2012/06/mapreduce-with-mongodb.html
+
+use library
+
+book1 = {name : "Understanding JAVA", pages : 100}
+book2 = {name : "Understanding JSON", pages : 200}
+
+db.books.save(book1)
+db.books.save(book2)
+
+db.books.find();
+
+book = {name : "Understanding XML", pages : 300}
+db.books.save(book)
+book = {name : "Understanding Web Services", pages : 400}
+db.books.save(book)
+book = {name : "Understanding Axis2", pages : 150}
+db.books.save(book)
+
+var map = function() { var category; if ( this.pages >= 250 ) category = 'Big Books'; else category = "Small Books"; emit(category, {name: this.name}); };
+var map = function() {
+	var category;
+	if ( this.pages >= 250 )
+		category = 'Big Books';
+	else
+		category = "Small Books";
+	emit(category, {name: this.name});
+};
+
+var reduce = function(key, values) { var sum = 0; values.forEach(function(doc) { sum += 1; }); return {books: sum}; };
+var reduce = function(key, values) {
+	var sum = 0;
+	values.forEach(function(doc) {
+		sum += 1;
+	});
+	return {books: sum};
+};
+
+var count  = db.books.mapReduce(map, reduce, {out: "book_results"});
+db[count.result].find()
+
+====================================================================
+
+db.factories.insert( { name: "Miller", metro: { city: "Milwaukee", state: "WI" } } );
+db.factories.insert( { name: "Lakefront", metro: { city: "Milwaukee", state: "WI" } } );
+db.factories.insert( { name: "Point", metro: { city: "Steven's Point", state: "WI" } } );
+db.factories.insert( { name: "Pabst", metro: { city: "Milwaukee", state: "WI" } } );
+db.factories.insert( { name: "Blatz", metro: { city: "Milwaukee", state: "WI" } } );
+db.factories.insert( { name: "Coors", metro: { city: "Golden Springs", state: "CO" } } );
+db.factories.find()
+
+var mapCity = function () { emit(this.metro.city, 1); }
+mapCity = function () {
+    emit(this.metro.city, 1);
+}
+
+var reduceCount = function (k, vals) { var sum = 0; for (var i in vals) { sum += vals[i]; } return sum; }
+reduceCount = function (k, vals) {
+    var sum = 0;
+    for (var i in vals) {
+        sum += vals[i];
+    }
+    return sum;
+}
+
+var res = db.factories.mapReduce(mapCity, reduceCount, "city_result")
+db[res.result].find()

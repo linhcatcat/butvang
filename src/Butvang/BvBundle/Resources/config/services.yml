@@ -1,0 +1,11 @@
+parameters:
+#    butvang_bv.example.class: Butvang\BvBundle\Example
+
+services:
+#    butvang_bv.example:
+#        class: %butvang_bv.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    butvang.bv_extension:
+        class:      Butvang\BvBundle\Extension\BvExtension
+        tags:
+            - { name: 'twig.extension'}

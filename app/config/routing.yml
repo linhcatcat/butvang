@@ -1,0 +1,4 @@
+butvang_bv:
+    resource: "@ButvangBvBundle/Resources/config/routing.yml"
+    prefix:   /
+

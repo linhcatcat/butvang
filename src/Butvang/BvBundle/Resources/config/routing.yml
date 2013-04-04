@@ -1,0 +1,23 @@
+butvang_bv_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: ButvangBvBundle:Default:index }
+
+butvang_bv_product_create:
+    pattern:  /product/create
+    defaults: { _controller: ButvangBvBundle:Product:create }
+
+butvang_bv_product_show_all:
+    pattern:  /product/show-all
+    defaults: { _controller: ButvangBvBundle:Product:showAll }
+
+butvang_bv_product_show:
+    pattern:  /product/show/{id}
+    defaults: { _controller: ButvangBvBundle:Product:show }
+
+butvang_bv_product_update:
+    pattern:  /product/update/{id}
+    defaults: { _controller: ButvangBvBundle:Product:update }
+
+butvang_bv_product_delete:
+    pattern:  /product/delete/{id}
+    defaults: { _controller: ButvangBvBundle:Product:delete }

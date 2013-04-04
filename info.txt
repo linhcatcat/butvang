@@ -1,0 +1,17 @@
+http://symfony.com/doc/2.0/book/doctrine.html
+
+php app/console generate:bundle --namespace=Acme/StoreBundle
+
+php app/console doctrine:database:create
+
+php app/console doctrine:database:drop --force
+php app/console doctrine:database:create
+
+php app/console doctrine:generate:entity --entity="AcmeStoreBundle:Product" --fields="name:string(255) price:float description:text"
+
+php app/console doctrine:generate:entities Acme/StoreBundle/Entity/Product
+
+php app/console doctrine:generate:entities AcmeStoreBundle
+php app/console doctrine:generate:entities Acme
+
+php app/console doctrine:schema:update --force
