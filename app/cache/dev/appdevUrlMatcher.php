@@ -134,7 +134,7 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // butvang_bv_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+        if (preg_match('#^/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'butvang_bv_homepage')), array (  '_controller' => 'Butvang\\BvBundle\\Controller\\DefaultController::indexAction',));
         }
 

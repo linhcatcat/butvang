@@ -479,8 +479,8 @@
     <parameter key="jms_di_extra.disable_grep">false</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
     <parameter key="jms_di_extra.cache_warmer.controller_file_blacklist" type="collection"/>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">D:/xampp/htdocs/symfony-team/symfony_2.2.0/app/cache/dev/jms_diextra/doctrine/EntityManager_515d2cafeeec1.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager515d2cafeeec1_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">D:/xampp/htdocs/symfony-team/symfony_2.2.0/app/cache/dev/jms_diextra/doctrine/EntityManager_515d4a55105bb.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager515d4a55105bb_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -522,7 +522,7 @@
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
     <parameter key="web_profiler.debug_toolbar.class">Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
-    <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
+    <parameter key="web_profiler.debug_toolbar.mode">1</parameter>
     <parameter key="web_profiler.debug_toolbar.position">bottom</parameter>
     <parameter key="sensio.distribution.webconfigurator.class">Sensio\Bundle\DistributionBundle\Configurator\Configurator</parameter>
     <parameter key="data_collector.templates" type="collection">
@@ -2249,8 +2249,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager515d2cafeeec1_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>D:/xampp/htdocs/symfony-team/symfony_2.2.0/app/cache/dev/jms_diextra/doctrine/EntityManager_515d2cafeeec1.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager515d4a55105bb_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>D:/xampp/htdocs/symfony-team/symfony_2.2.0/app/cache/dev/jms_diextra/doctrine/EntityManager_515d4a55105bb.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
@@ -2555,7 +2555,7 @@
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="twig"/>
       <argument>false</argument>
-      <argument>2</argument>
+      <argument>1</argument>
       <argument>bottom</argument>
     </service>
     <service id="sensio.distribution.webconfigurator" class="Sensio\Bundle\DistributionBundle\Configurator\Configurator">

@@ -1,5 +1,5 @@
 butvang_bv_homepage:
-    pattern:  /hello/{name}
+    pattern:  /{name}
     defaults: { _controller: ButvangBvBundle:Default:index }
 
 butvang_bv_product_create:
